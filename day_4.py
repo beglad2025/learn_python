@@ -20,6 +20,9 @@ print(movie_rank)
 # movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '럭키', '배트맨']
 del movie_rank[-2]
 print(movie_rank)
+# 다른 방법
+# movie_rank.remove('럭키')
+# print(movie_rank)
 
 # 5. movie_rank 리스트에서 '스플릿' 과 '배트맨'을 를 삭제하라.
 # movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '배트맨']
@@ -42,6 +45,9 @@ nums2 = [1, 2, 3, 4, 5]
 # 실행 예:
 # [5, 4, 3, 2, 1]
 print(nums2[::-1])
+# 다른 방법
+nums2.reverse()
+print(nums2)
 
 # 9.interest 리스트에는 아래의 데이터가 저장되어 있다.
 interest1 = ['삼성전자', 'LG전자', 'Naver']
@@ -79,31 +85,38 @@ print(data)
 x = '881120-1068234'
 newx = x.split("-")
 print(newx)  # list 형태로 출력하는 경우
+# 다른 방법 1
 print(" ".join(newx))
+# 다른 방법 2
+print("연월일 부분 :", x[:6], "숫자 부분 :", x[8:])
 
 # 14
 # (1,2,3) 튜플에 값 4를 추가하여 (1,2,3,4)를 만들어 출력해 보자.
 # ※ 더하기(+)를 사용해 보자.
-t1 = (1,2,3)
+t1 = (1, 2, 3)
 newt = list(t1)
 newt += [4]
 t2 = tuple(newt)
 print(t2)
+# 다른 방법
+t3 = (1, 2, 3)
+t3 = t3 + (4,)
+print(t3)
 
 # 15
 # 다음과 같은 딕셔너리 a가 있다.
-a = dict()
+# a = dict()
 # a
 # {}
 #
 # 다음 중 오류가 발생하는 경우를 고르고, 그 이유를 설명해 보자.
-# a['name'] = 'python'
-# a[('a',)] = 'python'
+# a['name'] = 'python'  # 가장 기본적인 형태
+# a[('a',)] = 'python'  # dictionary의 key는 변하지 않는 값 사용 가능. tuple도 변하지 않으므로 사용가능
 # a[[1]] = 'python'  <- key 자리에는 list 형태가 올 수 없으므로 오류가 발생한다.
 # a[250] = 'python'
 
 # 16
 # 딕셔너리 a에서 'B'에 해당되는 값을 추출해 보자.
-a = {'A':90, 'B':80, 'C':70}
+a = {'A': 90, 'B': 80, 'C': 70}
 # ※ 딕셔너리의 pop 함수를 사용해 보자.
 print(a.pop('B'))
