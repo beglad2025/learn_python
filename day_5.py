@@ -62,11 +62,19 @@ print("=" * 50)
 # for문을 사용해 2부터 100까지의 숫자 중에서 소수를(prime number) 출력해 보자.
 # *소수란? 1과 자기 자신으로만 나누어 떨어지는 수(ex. 2, 3, 5, 7, 11, 13,...)
 # 혼자
+# for k2 in range(2, 101):
+#     for num in (2, k2+1):
+#         if k2 % num != 0:
+#             print(k2)
+# print('=' * 50)
+
+# 다른 분 과제
 for k2 in range(2, 101):
-    for num in (2, k2):
-        if k2 % num != 0:
-            print(k2)
-print('=' * 50)
+    for num in range(2, k2+1):
+        if k2 == num:
+            print(num, end=' ')
+        elif k2 % num == 0:
+            break
 
 # 지식인
 # list_prime_number = [2]
@@ -100,9 +108,13 @@ print("=" * 50)
 # *주의:중복된 수 나오면 안됨
 # 이번 주 로또 당첨 번호 :  3 7 13 22 25 29
 import random
-lotto = random.sample(range(1, 100), 6)
+lotto = random.sample(range(1, 46), 6)
 print('이번 주 로또 당첨 번호 :', lotto)
 print("=" * 50)
+# set 활용해서 다시 한 번 풀어보기(while도 포함)
+# for i in range(6):
+#     [].append(randint(1, 45))
+# if len(set())
 
 # 7. 자판기(pro, 커피 한 잔에 300원이라 가정, 초기 커피는 10개)
 # 돈을 넣어 주세요: 500
