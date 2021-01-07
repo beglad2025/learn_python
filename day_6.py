@@ -81,7 +81,7 @@ apart = [ [101, 102], [201, 202], [301, 302] ]
 print("=" * 10)
 for i in range(3):
     for j in range(2):
-        print(apart[i][j])
+        print(apart[i][j], "호")
     print("-" * 5)
 
 
@@ -92,7 +92,7 @@ for i in range(3):
 print("\n")
 print("=" * 10)
 sum = 0
-for i in range(0, 10000, 8):
+for i in range(1, 10000):
     str_i = str(i)
     j = str_i.find('8')
     if j != -1:
