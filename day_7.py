@@ -25,15 +25,28 @@ with open("test1.txt", "r") as t1:
 # Life is too short
 # you need java
 # 주어진 상황 생성
-with open("test2.txt", "w") as t2:
-    t2.write("Life is too short\n")
-    t2.write("you need java\n")
-# java -> python
-with open("test2.txt", "r") as t2:
-    java = t2.readlines()
-py = java[1].replace("java", "python")
-with open("test2.txt", "w") as t2:
-    t2.writelines(java[0] + py)
+# with open("test2.txt", "w") as t2:
+#     t2.write("Life is too short\n")
+#     t2.write("you need java\n")
+# # java -> python
+# with open("test2.txt", "r") as t2:
+#     java = t2.readlines()
+# py = java[1].replace("java", "python")
+# with open("test2.txt", "w") as t2:
+#     t2.writelines(java[0] + py)
+
+# 최희원님
+# with open("test2.txt", "w") as t2:
+#     t2.write("""Life is too short
+#     you need java""")
+# with open("test2.txt", "r") as t2:
+#     s = t2.read()
+# with open("test2.txt", "w") as t2:
+#     s = t2.write(s.replace("java", "python"))
+# with open("test2.txt", "r") as t2:
+#     s = t2.read()
+#     print(s)
+
 
 # 4. "비트코인" 문자열을 화면에 출력하는 print_coin() 함수를 정의하라.
 def print_coin():
@@ -63,22 +76,23 @@ def print_with_smile(a):
 print_with_smile("안녕")
 
 # 9. 현재 가격을 입력 받아 상한가 (30%)를 출력하는 print_upper_price 함수를 정의하라.
-def print_upper_price(a):
-    b = str(int(a * 0.3))
-    price = int(a + (a * 0.3 - int(b[-1])))
-    str_price = str(price)
-    i = int(str_price[-2:])
-    if i < 50.0:
-        price = price - i
-        print(price)
-    elif i == 50.0:
-        print(price)
-    else:
-        price = price - (i-50)
-        print(price)
+# def print_upper_price(a):
+#     b = str(int(a * 0.3))
+#     price = int(a + (a * 0.3 - int(b[-1])))
+#     str_price = str(price)
+#     i = int(str_price[-2:])
+#     if i < 50.0:
+#         price = price - i
+#         print(price)
+#     elif i == 50.0:
+#         print(price)
+#     else:
+#         price = price - (i-50)
+#         print(price)
+
 
 # 확인
-print_upper_price(9980)
+# print_upper_price(9980)
 
 
 # 10. 하나의 리스트를 입력받아 짝수만 화면에 출력하는 print_even 함수를 정의하라.
@@ -144,26 +158,75 @@ make_list("abcd")
 # 이런 숫자를 인도의 수학자 Kaprekar가 셀프 넘버(self-number)라 이름 붙였다.
 # 예를 들어 1,3,5,7,9,20,31 은 셀프 넘버 들이다.
 # 1 이상이고 5000 보다 작은 모든 셀프 넘버들의 합을 구하라.
-num = list(range(1, 5000))
-for i in range(1, 5000):
-    for j in range(1, i):
-        newj = list(str(j))
-        sum = 0
-        for k in range(len(newj)):
-            sum = sum + int(newj[k])
-        if (sum + j) == i:
-            if i in num:
-                num.remove(i)
-            else:
-                continue
-all = 0
-for x in range(len(num)):
-    all = all + num[x]
-print(all)
+# 나
+# num = list(range(1, 5000))
+# for i in range(1, 5000):
+#     for j in range(1, i):
+#         newj = list(str(j))
+#         sum = 0
+#         for k in range(len(newj)):
+#             sum = sum + int(newj[k])
+#         if (sum + j) == i:
+#             if i in num:
+#                 num.remove(i)
+#             else:
+#                 continue
+# all = 0
+# for x in range(len(num)):
+#     all = all + num[x]
+# print(all)
+
+# 최희원님
+# not_self_num = set()
+# for i in range(1, 5000):
+#     num = i + sum(map(int, str(i)))  # 자기자신 + 각 자리 숫자
+#     not_self_num.add(num)
+# self_num = set(range(1, 5000)) - not_self_num
+# print(self_num)
+# print(sum(self_num))
+
+# 김윤호님
+# list_num = list(range(1, 5000))
+# set_res = set()
+# for i in list_num:
+#     str_num = str(i)
+#     res = i
+#     for j in range(len(str_num)):
+#         res += int(str_num[j])
+#         set_res.add(res)  # set_res : 셀프 넘버가 아닌 수들
+#         set_num = set(range(1, 5000))
+#
+# sol = set_num - set_res
+# tuple_sol = tuple(sol)
+# print(set_res)
+# print(set_num)
+# print("self number:", sorted(tuple_sol))
+# print("answer:", sum(tuple_sol))
 
 # 17. 최대 낙차
-box = [7, 4, 2, 0, 0, 6, 0, 7, 0]
+# box = [7, 4, 2, 0, 0, 6, 0, 7, 0]
 # 출력 => 최대낙차 : 7
-max_drops = lambda x: print(max(x))
+# 최희원님
+# drop2 = []
+# for i in range(len(box)):
+#     drop1 = []
+#     for j in box[i+1:]:
+#         if box[i] > j:
+#             drop1.append(j)
+#     drop2.append((len(drop1)))
+# print("최대 낙차 :", max(drop2))
 
-max_drops(box)
+
+# 김윤호님
+# box = (1, 2, 3, 3, 4, 7, 2, 3)
+# def maxdrop(arg):
+#     lres = []
+#     for j in range(len(arg)):
+#         num = 0
+#         for i in arg:
+#             if arg[j] <= i:
+#                 num += 1
+#                 res = len(arg) - j - num
+#                 lres.append(res)
+#     print("최대낙차", max(lres))
+# maxdrop(box)
