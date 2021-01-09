@@ -11,7 +11,6 @@ while i <= 1000:
     i += 1
     if i % 3 == 0 and i % 7 == 0:
         sum += i
-    else: continue
 print(sum)
 
 # 3. while문을 사용하여 다음과 같이 별(*)을 표시하는 프로그램을 작성해 보자.
@@ -61,37 +60,14 @@ print("=" * 50)
 # 4-1.(adv)
 # for문을 사용해 2부터 100까지의 숫자 중에서 소수를(prime number) 출력해 보자.
 # *소수란? 1과 자기 자신으로만 나누어 떨어지는 수(ex. 2, 3, 5, 7, 11, 13,...)
-# 혼자
+# 혼자해본 방법..ㅠ 하지만 오류 있음
 # for k2 in range(2, 101):
 #     for num in (2, k2+1):
 #         if k2 % num != 0:
 #             print(k2)
 # print('=' * 50)
-
-# 다른 분 과제
-for k2 in range(2, 101):
-    for num in range(2, k2+1):
-        if k2 == num:
-            print(num, end=' ')
-        elif k2 % num == 0:
-            break
-
-# 지식인
-# list_prime_number = [2]
-# k2 = 2
-# while k2 <= 100:
-#     is_prime = True
-#     for num in (2, k2):
-#         if k2 % num == 0:
-#             is_prime = False
-#     if not is_prime:
-#         k2 += 1
-#         continue
-#     else:
-#         list_prime_number += [k2]
-#     k2 += 1
-# print(list_prime_number)
-# print("=" * 50)
+# 어렵게 꼬아서 가지 말자! 원래 계산방식을 구현하려고 하지말고!
+# 어떻게 하면 코드가 더 쉽게 쓰여질 수 있을지 고민해보자!
 
 # 5.
 # A 학급에 총 10명의 학생이 있다. 이 학생들의 중간고사 점수는 다음과 같다.
@@ -100,7 +76,7 @@ for k2 in range(2, 101):
 sum = 0
 score = [70, 60, 55, 75, 95, 90, 80, 80, 85, 100]
 for l in score:
-    sum = sum + l
+    sum += l
 print(sum/len(score))
 print("=" * 50)
 
@@ -112,9 +88,7 @@ lotto = random.sample(range(1, 46), 6)
 print('이번 주 로또 당첨 번호 :', lotto)
 print("=" * 50)
 # set 활용해서 다시 한 번 풀어보기(while도 포함)
-# for i in range(6):
-#     [].append(randint(1, 45))
-# if len(set())
+
 
 # 7. 자판기(pro, 커피 한 잔에 300원이라 가정, 초기 커피는 10개)
 # 돈을 넣어 주세요: 500
