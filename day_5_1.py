@@ -36,7 +36,17 @@ for i in range(5, 0, -1):
     print(" " * i, end="")
     print("*" * (6 - i))
 print("=" * 50)
+
 # 이중 for문으로 하면 만들고자 하는 저 모양이 반복되어 여러번 만들어짐...ㅠ
+for i in range(5, 0, -1):
+    for j in range(0, i):
+        print(" ", end="")
+    for k in range(6-i):
+        print("*", end="")
+    print()
+print("=" * 50)
+
+
 
 # 3)adv
 #      *
