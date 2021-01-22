@@ -1,0 +1,145 @@
+<!--4. 최대/최소-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>최대/최소</title>
+    <script>
+        var numlist = [52, 273, 103, 32, 57, 103, 31, 2];
+        var min = numlist[0];
+        for(var i=1; i<numlist.length; i++){
+            if(min > numlist[i]){
+                min = numlist[i];
+                }
+            }
+        document.write("최소값 : "+min+"<br>");
+
+        var max = numlist[0];
+        for(var j=1; j<numlist.length; j++){
+            if(max < numlist[j]){
+                max = numlist[j];
+                }
+            }
+        document.write("최대값 : "+max+"<br>");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>-->
+
+
+
+
+<!--5. 구구단-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>구구단 1)while 사용</title>
+    <script>
+    var i = 2;
+    while(i<10){
+        var j = 1;
+        while(j<10){
+            mul = i*j;
+            document.write(mul + " ");
+            j++;
+            }
+        i++
+        document.write("<p>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>구구단 2)for 사용</title>
+    <script>
+    for(i=2; i<10; i++){
+        for(j=1; j<10; j++){
+            mul = i*j;
+            document.write(mul + " ");
+            }
+        document.write("<p>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>-->
+
+
+
+<!--6. 주사위-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>주사위</title>
+    <script>
+    for(var i=1; i<7; i++){
+        for(var j=1; j<7; j++){
+            sum = i+j
+            if(sum == 6){
+                document.write(i+", "+j+"<br>");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>-->
+
+
+
+<!--7. 다이아몬드 출력하기-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>다이아몬드</title>
+    <script>
+    for(var i=1; i<10; i+=2){
+        var b = (9-i)/2
+        for(var k=0; k<b; k++){
+            document.write("&nbsp");
+            }
+        for(var j=0; j<i; j++){
+            document.write("*");
+            }
+        document.write("<br>");
+        }
+
+    for(var i=7; i>0; i-=2){
+        var b = (9-i)/2
+        for(var k=0; k<b; k++){
+            document.write("&nbsp");
+            }
+        for(var j=0; j<i; j++){
+            document.write("*");
+            }
+        document.write("<br>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
