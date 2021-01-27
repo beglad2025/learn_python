@@ -1,0 +1,22 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ID : <input type="text" id="myid"/>
+<input type="button" id="chk" value="validation" onclick="
+    var num=document.getElementById('myid').value;
+    if(num.length > 12){
+        alert('사용불가')
+    }
+    else if(num.length >= 6){
+        alert('사용가능')
+    }
+    else{
+        alert('사용불가')
+    }
+">
+
+</body>
+</html>
