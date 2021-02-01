@@ -1,0 +1,172 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <script>
+        window.onload=function(){
+            frm.id.focus();
+            document.getElementById("signup").onclick=chkData;
+            document.getElementById("age").onfocus=ageHandler;
+            return;
+        }
+
+        //데이터 확인 함수인 chkData 정의
+        function chkData(){
+            //ID 환경설정1 : 꼭 문자 먼저
+            var regEx1 = /^[a-zA-Z]\w*$/;
+            if(!frm.id.value.match(regEx1)){
+                alert("ID는 숫자/문자 조합으로 가능하며 반드시 문자로 시작해야합니다");
+                frm.id.focus();
+                return;
+            }
+
+            //ID 환경설정2 : 6자 이상 13자 이하 작성
+            if(frm.id.value.length > 13){
+                alert("ID는 13자 이하로 작성 해야합니다");
+                frm.id.value="";
+                frm.id.focus();
+                return;
+            } else if(frm.id.value.length < 6){
+                alert("ID는 6자 이상으로 작성 해야합니다");
+                frm.id.value="";
+                frm.id.focus();
+                return;
+            }
+
+            //pw와 pw확인이 동일한지 확인
+            var pswd1=document.getElementById("pw1").value;
+            var pswd2=document.getElementById("pw2").value;
+            if(pswd1 != pswd2){
+                alert("password가 일치하지 않습니다");
+                return;
+            }
+
+            //취미 선택 4개 이상 -> 경고메세지 출력&재체크 하도록 초기화
+            var optionCount = 0;
+            for(var i=0; i<frm.hobby.length; i++){
+                if(frm.hobby[i].checked){
+                    optionCount++ ;
+                }
+            }
+            if(optionCount > 3){
+                alert("최대 3개까지만 선택 가능합니다");
+                for(var i=0; i<frm.hobby.length; i++){
+                    frm.hobby[i].checked = false;
+                }
+                return;
+            }
+
+            //이메일 아이디 작성 규칙 검증
+            var regEx2 = /^[\w]+$/;
+            if(!frm.email.value.match(regEx2)){
+                alert("이메일의 아이디에 특수문자는 올 수 없습니다");
+                return;
+            } else if(frm.email.value.length > 12){
+                alert("길이가 12글자로 제한됩니다");
+                return;
+            }
+
+            //전화번호 작성 규칙 검증
+            var regEx3 = /^\d{3}[-]\d{4}[-]\d{4}$/;
+            if(!frm.tel.value.match(regEx3)){
+                alert("-를 포함하여 형식에 맞게 작성해주세요");
+                return;
+            }
+
+            //자기소개서 최소 10글자 이상
+            if(document.getElementById("memo").value.length < 10){
+                alert("자기소개는 최소 10글자 이상 작성하셔야 합니다");
+                return;
+            }
+        }
+
+        //생년월일 입력한 뒤, 현재나이에 마우스 포커스 들어오면 자동으로 나이계산
+        function ageHandler(){
+            var today = new Date().getFullYear();
+            var birth = document.getElementById("birth").value.substring(0, 4);
+            var ageNum = today - parseInt(birth) + 1;
+            document.getElementById("age").value = ageNum;
+        }
+    </script>
+</head>
+<body>
+<form name="frm">
+    <fieldset>
+        <legend>회원가입</legend>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" id="id" name="id"></td>
+            </tr>
+            <tr>
+                <td>PW</td>
+                <td>
+                    <input type="password" id="pw1" name="pw1">
+                    PW확인
+                    <input type="password" id="pw2" name="pw2">
+                </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <label>남 <input type="radio" name="gender" value="male"></label>
+                    <label>여 <input type="radio" name="gender" value="female"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="soc">축구
+                    <input type="checkbox" name="hobby" value="bb">야구
+                    <input type="checkbox" name="hobby" value="sw">수영
+                    <input type="checkbox" name="hobby" value="ba">농구
+                </td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td>
+                    <input type="date" name="birth" id="birth">
+                </td>
+            </tr>
+            <tr>
+                <td>현재나이</td>
+                <td>
+                    <input type="text" name="age" id="age">
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="text" name="email" id="email">
+                    @
+                    <select id="url">
+                        <option value="naver">naver.com</option>
+                        <option value="daum">daum.net</option>
+                        <option value="gmail">gmail.com</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>
+                    <input type="text" name="tel" id="tel">
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td>
+                    <textarea id="memo" rows="5" cols="50"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="signup" value="sign up">
+                    <input type="reset" id="reset" value="reset">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+</form>
+</body>
+</html>
