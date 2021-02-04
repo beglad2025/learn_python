@@ -19,13 +19,19 @@ print(getGcd(x, y))  #6
 print(getLcm(x, y))  #36
 
 # 2. 1~1000에서 각 숫자의 개수 구하기
-
+# 방법1
 num = [str(n) for n in range(1, 1000)]
 res = {x:0 for x in range(10)}
 for i in num:
     for j in i:
         res[int(j)] += 1
 print(res)
+
+# 방법2
+a = "".join([str(i) for i in range(10, 16)])
+for i in sorted(set(a)):
+    print("{0}: {1}개".format(i, a.count(i)), end=" ")
+print()
 
 # 3. 시저암호
 
